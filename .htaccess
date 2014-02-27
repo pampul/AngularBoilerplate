@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /app
+</IfModule>

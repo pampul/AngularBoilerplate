@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="fr" ng-app="ng-app">
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS Boilerplate</title>
+  <meta name="description" content="">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link href="//www.google-analytics.com" rel="dns-prefetch">
+  <link href="assets/css/style.min.css" rel="stylesheet">
+
+  <script src="assets/components/modernizr/modernizr.js"></script>
+
+</head>
+<body>
+
+<header class="header" role="banner">
+  <div ng-include="'layouts/header.html'"></div>
+</header>
+
+<main class="main" role="main">
+
+  <ng-view></ng-view>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div ng-include="'layouts/footer.html'"></div>
+</footer>
+
+
+
+<script>
+  (function(a,r,g,e,t,l,m){r['GoogleAnalyticsObject']=t;a[t]=a[t]||function(){
+    (a[t].q=a[t].q||[]).push(arguments)},a[t].m=1*new Date();l=r.createElement(g),
+      m=r.getElementsByTagName(g)[0];l.async=1;l.src=e;m.parentNode.insertBefore(l,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXXXXX-XX');
+  ga('send', 'pageview');
+</script>
+
+<script src="assets/js/scripts.js"></script>
+
+</body>
+</html>

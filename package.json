@@ -1,0 +1,25 @@
+{
+  "name": "WorkShop",
+  "version": "0.0.0",
+  "description": "AngularJS WorkShop",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": " <florian.mithieux@gmail.com>",
+  "license": "BSD",
+  "devDependencies": {
+    "gulp": "~3.4.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-uglify": "~0.2.1",
+    "gulp-imagemin": "~0.1.5",
+    "gulp-jshint": "~1.5.0",
+    "gulp-sass": "~0.7.1",
+    "gulp-bower-files": "^0.1.11",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.1.0",
+    "gulp-watch": "^0.5.0",
+    "gulp-notify": "^1.0.0-beta"
+  }
+}
