@@ -1,20 +1,17 @@
 {
-  "name": "WorkShop",
-  "version": "0.0.0",
+  "name": "AngularBoilerplate",
+  "version": "1.0.0",
+  "license": "BSD",
+  "description": "Quick Front-End Boilerplate using AngularJS, Sass and Gulp.",
   "authors": [
     "Argetloum <florian.mithieux@gmail.com>"
   ],
-  "description": "AngularJS WorkShop",
-  "main": "index.html",
   "keywords": [
     "Angular",
     "browserify",
     "gulp",
     "polymer"
   ],
-  "license": "MIT",
-  "homepage": "index.html",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",

@@ -10,6 +10,7 @@
     "url": "http://github.com/Argetloum/AngularBoilerplate.git"
   },
   "devDependencies": {
+    "bower": "~1.2.6",
     "gulp": "~3.4.0",
     "gulp-concat": "~2.1.7",
     "gulp-uglify": "~0.2.1",
