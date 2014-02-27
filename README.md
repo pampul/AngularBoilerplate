@@ -1,4 +1,4 @@
-# AngularBoilerplate
+# AngularBoilerplate [![Build Status](https://travis-ci.org/toddmotto/fireshell.png)](https://travis-ci.org/toddmotto/fireshell)
 
 Quick Front-End Boilerplate using AngularJS, Sass and Gulp.
 
