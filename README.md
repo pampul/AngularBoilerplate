@@ -67,7 +67,6 @@ Here are some of the main features of the boilerplate:
 ├── README.md
 ├── bower.json
 ├── gulpfile.js
-├── .htaccess
 ├── .gitignore
 ├── .bowerrc
 ├── .jshintrc
