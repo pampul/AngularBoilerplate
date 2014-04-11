@@ -10,6 +10,8 @@ var minifyCSS = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var watch = require('gulp-watch');
 var notify = require('gulp-notify');
+var stylish = require('jshint-stylish');
+
 
 var paths = {
   bowerCopy: {
@@ -128,7 +130,7 @@ gulp.task('images', function () {
 gulp.task('lint', function () {
   gulp.src(paths.scripts.jsHint)
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter(stylish));
 });
 
 /**
