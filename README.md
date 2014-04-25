@@ -1,4 +1,4 @@
-# AngularBoilerplate [![Build Status](https://travis-ci.org/Argetloum/AngularBoilerplate.png)](https://travis-ci.org/Argetloum/AngularBoilerplate)
+# AngularBoilerplate [![Build Status](https://travis-ci.org/Argetloum/AngularBoilerplate.png)](https://travis-ci.org/Argetloum/AngularBoilerplate) <img src="http://img.shields.io/badge/Built%20with-Gulp-red.svg" />
 
 Quick Front-End Boilerplate using AngularJS, Sass and Gulp.
 
