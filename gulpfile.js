@@ -40,7 +40,7 @@ var paths = {
 
   scss: {
     src: 'src/scss/style.scss',
-    dest: 'app/assets/css',
+    dest: 'app/assets/components/css',
     finalDest: 'app/assets/css'
   },
 
