@@ -5,8 +5,8 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
-var bowerFiles = require('gulp-bower-files');
 var minifyCSS = require('gulp-minify-css');
+var concatCSS = require('gulp-concat-css');
 var rename = require('gulp-rename');
 var watch = require('gulp-watch');
 var notify = require('gulp-notify');
@@ -40,7 +40,8 @@ var paths = {
 
   scss: {
     src: 'src/scss/style.scss',
-    dest: 'app/assets/css'
+    dest: 'app/assets/css',
+    finalDest: 'app/assets/css'
   },
 
   watch: {
@@ -57,61 +58,43 @@ var paths = {
 
 
 /**
- * Stylesheets tasks
- */
-gulp.task('styles', function () {
-  gulp.src(paths.watch.styles)
-    .pipe(watch(function (files) {
-      return gulp.src(paths.scss.src).pipe(sass())
-        .pipe(gulp.dest(paths.scss.dest))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(minifyCSS())
-        .pipe(gulp.dest(paths.scss.dest));
-    }));
-
-});
-
-/**
  * Stylesheets one time task
  */
-gulp.task('styles-one-time', function () {
+gulp.task('styles', function () {
   return gulp.src(paths.scss.src).pipe(sass())
     .pipe(gulp.dest(paths.scss.dest))
+    .pipe(concatCSS("styles.css"))
+    .pipe(gulp.dest(paths.scss.finalDest))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifyCSS())
-    .pipe(gulp.dest(paths.scss.dest));
+    .pipe(gulp.dest(paths.scss.finalDest));
 });
 
 /**
  * Javascript tasks
  */
 gulp.task('js', function () {
-  gulp.src(paths.watch.js)
-    .pipe(watch(function (files) {
-      gulp.src(paths.scripts.src)
-        .pipe(concat(paths.scripts.dest))
-        .pipe(gulp.dest(paths.scripts.dir));
-
-      gulp.src(paths.scripts.fullDir)
-        .pipe(uglify({outSourceMap: false}))
-        .pipe(concat("scripts.min.js"))
-        .pipe(gulp.dest(paths.scripts.dir));
-    }));
-});
-
-
-/**
- * Javascript one time tasks
- */
-gulp.task('js-one-time', function () {
-  gulp.src(paths.scripts.src)
+  return gulp.src(paths.scripts.src)
     .pipe(concat(paths.scripts.dest))
     .pipe(gulp.dest(paths.scripts.dir));
+});
 
-  gulp.src(paths.scripts.fullDir)
+/**
+ * JS Minify
+ */
+gulp.task('uglify', function () {
+  return gulp.src(paths.scripts.fullDir)
     .pipe(uglify({outSourceMap: false}))
     .pipe(concat("scripts.min.js"))
     .pipe(gulp.dest(paths.scripts.dir));
+});
+
+/**
+ * Watch JS
+ */
+gulp.task('watch', function () {
+  gulp.watch(paths.watch.js, ['js']);
+  gulp.watch(paths.watch.styles, ['styles']);
 });
 
 /**
@@ -133,13 +116,9 @@ gulp.task('lint', function () {
     .pipe(jshint.reporter(stylish));
 });
 
-/**
- * Bower task
- */
-gulp.task('bowerFiles', function () {
-  bowerFiles().pipe(gulp.dest(paths.bowerCopy.dest))
-});
 
-gulp.task('default', ['styles', 'js']);
+gulp.task('default', ['watch']);
 
-gulp.task('prod', ['styles-one-time', 'js-one-time', 'images', 'lint']);
+gulp.task('lint', ['lint']);
+
+gulp.task('prod', ['styles', 'js', 'uglify', 'images']);
