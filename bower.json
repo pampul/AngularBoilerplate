@@ -21,13 +21,9 @@
   ],
   "dependencies": {
     "angular": "~1.2.13",
-    "modernizr": "~2.7.1",
     "angular-route": "~1.2.13",
     "bootstrap-sass": "twbs/bootstrap-sass#~3.1.1"
   },
   "overrides": {
-    "modernizr": {
-      "main": "modernizr.js"
-    }
   }
 }
