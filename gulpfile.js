@@ -39,7 +39,10 @@ var paths = {
   },
 
   scss: {
-    src: 'src/scss/style.scss',
+    src: [
+      'src/scss/style.scss',
+      'src/components/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss'
+    ],
     dest: 'app/assets/components/css',
     finalDest: 'app/assets/css'
   },
