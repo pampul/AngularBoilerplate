@@ -2,8 +2,8 @@
 <html class="no-js" lang="fr" ng-app="ng-app">
 <head>
   <meta charset="utf-8">
-  <title>AngularJS Boilerplate</title>
-  <meta name="description" content="">
+  <title ng-bind="seo.title">AngularJS Boilerplate</title>
+  <meta name="description" content="{{ seo.description }}">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -14,29 +14,37 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
 
 </head>
-<body>
+<body ng-cloak>
 
 <header class="header" role="banner">
   <div ng-include="'layouts/header.html'"></div>
 </header>
 
-<main class="main" role="main">
+<div class="main-container" ng-controller="_MasterController">
+  <main class="main" role="main">
 
-  <ng-view></ng-view>
+    <ng-view></ng-view>
 
-</main>
+  </main>
+</div>
 
 <footer class="footer" role="contentinfo">
   <div ng-include="'layouts/footer.html'"></div>
 </footer>
 
 
-
 <script>
-  (function(a,r,g,e,t,l,m){r['GoogleAnalyticsObject']=t;a[t]=a[t]||function(){
-    (a[t].q=a[t].q||[]).push(arguments)},a[t].m=1*new Date();l=r.createElement(g),
-      m=r.getElementsByTagName(g)[0];l.async=1;l.src=e;m.parentNode.insertBefore(l,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  (function (a, r, g, e, t, l, m) {
+    r['GoogleAnalyticsObject'] = t;
+    a[t] = a[t] || function () {
+      (a[t].q = a[t].q || []).push(arguments)
+    }, a[t].m = 1 * new Date();
+    l = r.createElement(g),
+        m = r.getElementsByTagName(g)[0];
+    l.async = 1;
+    l.src = e;
+    m.parentNode.insertBefore(l, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
   ga('create', 'UA-XXXXXXXX-XX');
   ga('send', 'pageview');
 </script>
